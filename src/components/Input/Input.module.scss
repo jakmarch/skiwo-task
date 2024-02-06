@@ -4,6 +4,7 @@
   border-radius: 4px;
   border: 1px solid #9da2ae;
   width: 100%;
+  box-sizing: border-box;
 
   &::placeholder {
     color: #6c6d78;
@@ -27,7 +28,7 @@
     bottom: 16px;
     display: inline-flex;
     align-items: center;
-    left: 8px
+    left: 8px;
   }
 
   &--withLeftIcon {

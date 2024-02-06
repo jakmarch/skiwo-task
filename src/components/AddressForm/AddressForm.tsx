@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./AddressForm.module.scss";
-import { Formik, Form, Field, FormikProps } from "formik";
+import { Formik, Form, FormikProps } from "formik";
 import { Button } from "../Button/Button";
 import { InputFormControl } from "../Input/InputFormControl";
 import { TextAreaFormControl } from "../TextArea/TextAreaFormControl";
@@ -10,6 +10,7 @@ import {
   AddressData,
   useAddressListContext,
 } from "../AddressListProvider/AddressListProvider";
+import { SelectFormControl } from "../Select/SelectFormControl";
 
 function AddressForm() {
   const { addAddress } = useAddressListContext();
@@ -29,7 +30,7 @@ function AddressForm() {
       </div>
 
       <Formik
-        initialValues={{ address: "", departments: "", description: "" }}
+        initialValues={{ address: "", departments: [], description: "" }}
         onSubmit={(values) => onSubmit(values)}
       >
         {(props: FormikProps<any>) => (
@@ -40,7 +41,15 @@ function AddressForm() {
               placeholder="Type your address here..."
               leftIcon={<PointerIcon />}
             />
-            <Field name="departments" />
+
+            <SelectFormControl
+              name="departments"
+              label="Departments"
+              options={[
+                { value: "Dep_1", label: "Department 1" },
+                { value: "Dep_2", label: "Department 2" },
+              ]}
+            />
 
             <TextAreaFormControl
               label="Address description (Optional)"

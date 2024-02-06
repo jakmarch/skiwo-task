@@ -3,8 +3,8 @@ import { createContext, useState, useContext, PropsWithChildren } from "react";
 export interface AddressData {
   id: string;
   address: string;
-  departments: string;
-  //   departments: DepartmentData[];
+  // departments: string;
+  departments: DepartmentData[];
   description?: string;
 }
 
@@ -27,6 +27,7 @@ export const AddressListProvider = ({ children }: PropsWithChildren<{}>) => {
   const [addressList, setAddressList] = useState<AddressData[]>([]);
 
   const addAddress = (data: AddressData) => {
+    console.log(data);
     setAddressList([...addressList, data]);
   };
 

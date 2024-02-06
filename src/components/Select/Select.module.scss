@@ -1,0 +1,33 @@
+.custom-react-select :global {
+  .select {
+    &__value-container {
+      padding: 12px 8px;
+    }
+
+    &__input-container {
+      padding: 0;
+      margin: 0;
+    }
+
+    &__control {
+      border: 1px solid #9da2ae;
+      border-radius: 4px;
+      transition-duration: 300ms;
+      font-size: 14px;
+    }
+
+    &__indicator-separator {
+      display: none;
+    }
+  }
+}
+
+.select {
+  &__label {
+    padding: 8px 0;
+  }
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+}

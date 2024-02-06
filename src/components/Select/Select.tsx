@@ -1,39 +1,30 @@
-import { FieldProps, useField } from "formik";
 import styles from "./Select.module.scss";
 
 import ReactSelect, { MultiValue } from "react-select";
 
-interface Option {
+export interface SelectOption {
   value: string;
   label: string;
 }
 
-export interface ISelectProps extends FieldProps {
+export interface ISelectProps {
+  name: string;
   label?: string;
-  options: Option[];
+  options: SelectOption[];
+  onChange: (value: MultiValue<SelectOption>) => void;
 }
 
-export const Select = ({ label, options, ...props }: ISelectProps) => {
-  const [field,, helpers] = useField(props.field.name);
-
-  const onChange = (value: MultiValue<Option>) => {
-    helpers.setValue(value);
-  };
-
+export const Select = ({ name, label, options, onChange }: ISelectProps) => {
   return (
     <div className={styles.select__wrapper}>
       <label className={styles.select__label}>{label}</label>
       <ReactSelect
-        name={field.name}
+        name={name}
         options={options}
         isMulti
         className={styles["custom-react-select"]}
         classNamePrefix="select"
-        onChange={(option) =>
-          (onChange as (option: MultiValue<Option>) => void)(
-            option as MultiValue<Option>
-          )
-        }
+        onChange={onChange}
       />
     </div>
   );
