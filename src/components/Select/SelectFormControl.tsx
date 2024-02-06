@@ -4,6 +4,7 @@ import { MultiValue } from "react-select";
 
 interface ISelectFormControlProps {
   name: string;
+  value: SelectOption[];
   label?: string;
   options: SelectOption[];
 }

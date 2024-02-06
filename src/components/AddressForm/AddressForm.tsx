@@ -39,15 +39,19 @@ function AddressForm() {
 
       <Formik
         initialValues={{ address: "", departments: [], description: "" }}
-        onSubmit={(values) => onSubmit(values)}
+        onSubmit={(values, { resetForm }) => {
+          onSubmit(values);
+          resetForm();
+        }}
         validationSchema={AddressSchema}
       >
-        {({ errors, touched, resetForm }: FormikProps<any>) => (
+        {({ errors, touched, values }: FormikProps<any>) => (
           <Form>
             <AddressAutocompleteFormControl
               name="address"
               label="Search for an address"
               placeholder="Type your address here..."
+              value={values.address}
             />
             {errors.address && touched.address ? (
               <div className={styles.addressForm__error}>
@@ -57,6 +61,7 @@ function AddressForm() {
 
             <SelectFormControl
               name="departments"
+              value={values.departments}
               label="Departments"
               options={[
                 { value: "Dep_1", label: "Department 1" },

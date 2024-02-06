@@ -5,6 +5,7 @@ import { PointerIcon } from "../icons/PointerIcon";
 
 interface IAddressAutocompleteProps {
   label?: string;
+  value?: string;
   placeholder?: string;
   setValue: (value: string) => void;
 }
@@ -13,6 +14,7 @@ export const AddressAutocomplete = ({
   label,
   placeholder,
   setValue,
+  value,
 }: IAddressAutocompleteProps) => {
   return (
     <div className={styles.addressAutocomplete__wrapper}>
@@ -20,6 +22,7 @@ export const AddressAutocomplete = ({
 
       <div className={styles.addressAutocomplete__withIconWrapper}>
         <GeoapifyGeocoderAutocomplete
+          value={value}
           placeholder={placeholder}
           placeSelect={(val) => setValue(val.properties.formatted)}
         />
