@@ -1,0 +1,26 @@
+.addressListItem {
+  display: flex;
+  border: 1px solid #e5e7e9;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 12px;
+
+  &__leftContentWrapper {
+    width: 100%;
+  }
+  &__rightContentWrapper {
+    text-align: end;
+    width: 100px;
+  }
+
+  &__heading {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+  }
+
+  &__paragraph {
+    margin: 0;
+    color: #4e5565;
+  }
+}
