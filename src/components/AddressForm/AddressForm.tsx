@@ -11,6 +11,15 @@ import { SelectFormControl } from "../Select/SelectFormControl";
 import "@geoapify/geocoder-autocomplete/styles/minimal.css";
 import { AddressAutocompleteFormControl } from "../AddressAutocomplete/AddressAutocompleteFormControl";
 
+import * as Yup from "yup";
+
+const AddressSchema = Yup.object().shape({
+  address: Yup.string().required("The address is required!"),
+  departments: Yup.array()
+    .min(1, "You have to provide at least one department!")
+    .required("Required!"),
+});
+
 function AddressForm() {
   const { addAddress } = useAddressListContext();
 
@@ -31,14 +40,20 @@ function AddressForm() {
       <Formik
         initialValues={{ address: "", departments: [], description: "" }}
         onSubmit={(values) => onSubmit(values)}
+        validationSchema={AddressSchema}
       >
-        {(props: FormikProps<any>) => (
+        {({ errors, touched, resetForm }: FormikProps<any>) => (
           <Form>
             <AddressAutocompleteFormControl
               name="address"
               label="Search for an address"
               placeholder="Type your address here..."
             />
+            {errors.address && touched.address ? (
+              <div className={styles.addressForm__error}>
+                {errors.address as string}
+              </div>
+            ) : null}
 
             <SelectFormControl
               name="departments"
@@ -48,6 +63,11 @@ function AddressForm() {
                 { value: "Dep_2", label: "Department 2" },
               ]}
             />
+            {errors.departments && touched.departments ? (
+              <div className={styles.addressForm__error}>
+                {errors.departments as string}
+              </div>
+            ) : null}
 
             <TextAreaFormControl
               label="Address description (Optional)"
