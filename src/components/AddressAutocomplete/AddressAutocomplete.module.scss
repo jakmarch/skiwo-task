@@ -1,0 +1,30 @@
+.addressAutocomplete {
+  &::placeholder {
+    color: #6c6d78;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    padding: 8px 0;
+  }
+
+  &__withIconWrapper {
+    position: relative;
+  }
+
+  &__leftIcon {
+    position: absolute;
+    bottom: 16px;
+    display: inline-flex;
+    align-items: center;
+    left: 8px;
+  }
+
+  &--withLeftIcon {
+    padding-left: 32px;
+  }
+}

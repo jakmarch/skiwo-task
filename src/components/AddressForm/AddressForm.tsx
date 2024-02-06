@@ -1,16 +1,15 @@
-import React from "react";
 import styles from "./AddressForm.module.scss";
 import { Formik, Form, FormikProps } from "formik";
 import { Button } from "../Button/Button";
-import { InputFormControl } from "../Input/InputFormControl";
 import { TextAreaFormControl } from "../TextArea/TextAreaFormControl";
-import { PointerIcon } from "../icons/PointerIcon";
 import { v4 as uuidv4 } from "uuid";
 import {
   AddressData,
   useAddressListContext,
 } from "../AddressListProvider/AddressListProvider";
 import { SelectFormControl } from "../Select/SelectFormControl";
+import "@geoapify/geocoder-autocomplete/styles/minimal.css";
+import { AddressAutocompleteFormControl } from "../AddressAutocomplete/AddressAutocompleteFormControl";
 
 function AddressForm() {
   const { addAddress } = useAddressListContext();
@@ -35,11 +34,10 @@ function AddressForm() {
       >
         {(props: FormikProps<any>) => (
           <Form>
-            <InputFormControl
-              label="Address"
+            <AddressAutocompleteFormControl
               name="address"
+              label="Search for an address"
               placeholder="Type your address here..."
-              leftIcon={<PointerIcon />}
             />
 
             <SelectFormControl
