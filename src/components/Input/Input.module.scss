@@ -1,0 +1,36 @@
+.input {
+  font-family: inherit;
+  padding: 12px 8px;
+  border-radius: 4px;
+  border: 1px solid #9da2ae;
+  width: 100%;
+
+  &::placeholder {
+    color: #6c6d78;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    padding: 8px 0;
+  }
+
+  &__withIconWrapper {
+    position: relative;
+  }
+
+  &__leftIcon {
+    position: absolute;
+    bottom: 16px;
+    display: inline-flex;
+    align-items: center;
+    left: 8px
+  }
+
+  &--withLeftIcon {
+    padding-left: 32px;
+  }
+}
