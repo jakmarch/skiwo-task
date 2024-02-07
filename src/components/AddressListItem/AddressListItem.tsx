@@ -15,7 +15,10 @@ export const AddressListItem = ({
       <div className={styles.addressListItem__leftContentWrapper}>
         <h2 className={styles.addressListItem__heading}>{address.address}</h2>
         <p className={styles.addressListItem__paragraph}>
-          Nr of departments: {address.departments.length}
+          Nr. of departments:{" "}
+          <span className={styles.addressListItem__departmentsNumber}>
+            {address.departments.length}
+          </span>
         </p>
         <p className={styles.addressListItem__paragraph}>
           Directions: {address.description ? address.description : "(N/A)"}

@@ -3,6 +3,22 @@
     padding: 20px 0;
   }
 
+  &__header {
+    font-size: 24px;
+    color: #111829;
+    margin-bottom: 8px;
+  }
+
+  &__description {
+    margin: 8px 0;
+    font-size: 18px;
+    color: #4f5460;
+  }
+
+  &__form {
+    padding: 28px 0;
+  }
+
   &__buttonWrapper {
     margin: 24px 0;
     display: flex;
@@ -12,5 +28,9 @@
   &__error {
     color: red;
     font-size: 12px;
+  }
+
+  &__departments {
+    padding: 28px 0;
   }
 }

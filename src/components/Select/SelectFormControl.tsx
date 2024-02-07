@@ -4,9 +4,11 @@ import { MultiValue } from "react-select";
 
 interface ISelectFormControlProps {
   name: string;
+  placeholder?: string;
   value: SelectOption[];
   label?: string;
   options: SelectOption[];
+  className?: string;
 }
 
 export const SelectFormControl = ({ ...props }: ISelectFormControlProps) => {

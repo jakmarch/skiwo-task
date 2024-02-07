@@ -46,11 +46,12 @@ button {
 
 .geoapify-autocomplete-input {
   font-family: inherit;
-  padding: 4px 8px 4px 28px !important;
+  padding: 4px 8px 4px 30px !important;
   border-radius: 4px;
   border: 1px solid #9da2ae !important;
 
   &::placeholder {
+    font-size: 16px;
     color: #6c6d78;
   }
 

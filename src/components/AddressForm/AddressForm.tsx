@@ -35,8 +35,8 @@ function AddressForm() {
   return (
     <div className={styles.addressForm__wrapper}>
       <div>
-        <h1>Addresses</h1>
-        <p>
+        <h1 className={styles.addressForm__header}>Addresses</h1>
+        <p className={styles.addressForm__description}>
           Search for an address to add it to your list. You will be able to add
           directions to the location on the booking form.
         </p>
@@ -51,7 +51,7 @@ function AddressForm() {
         validationSchema={AddressSchema}
       >
         {({ errors, touched, values, setFieldValue }) => (
-          <Form role="form">
+          <Form role="form" className={styles.addressForm__form}>
             <AddressAutocompleteFormControl
               name="address"
               label="Search for an address"
@@ -68,11 +68,13 @@ function AddressForm() {
             <SelectFormControl
               name="departments"
               value={values.departments}
-              label="Departments"
+              label="Attach the address above to one or more departments"
+              placeholder="Select department(s)"
               options={[
                 { value: "Dep_1", label: "Department 1" },
                 { value: "Dep_2", label: "Department 2" },
               ]}
+              className={styles.addressForm__departments}
             />
             {errors.departments && touched.departments ? (
               <div className={styles.addressForm__error}>

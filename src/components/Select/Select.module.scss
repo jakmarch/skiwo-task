@@ -19,12 +19,27 @@
     &__indicator-separator {
       display: none;
     }
+
+    &__indicator {
+      color: #38404e;
+
+      svg {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    &__placeholder {
+      font-size: 16px;
+      color: #1c1e2d;
+    }
   }
 }
 
 .select {
   &__label {
-    padding: 8px 0;
+    font-size: 14px;
+    padding: 6px 0;
   }
   &__wrapper {
     display: flex;

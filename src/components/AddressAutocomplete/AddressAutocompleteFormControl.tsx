@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { AddressAutocomplete } from "./AddressAutocomplete";
 
 export interface IAddressAutocompleteFormControlProps {
@@ -9,9 +8,12 @@ export interface IAddressAutocompleteFormControlProps {
   setValue: (val: string) => void;
 }
 
-export const AddressAutocompleteFormControl: FC<
-  IAddressAutocompleteFormControlProps
-> = ({ label, placeholder, value, setValue }) => {
+export const AddressAutocompleteFormControl = ({
+  label,
+  placeholder,
+  value,
+  setValue,
+}: IAddressAutocompleteFormControlProps) => {
   return (
     <AddressAutocomplete
       label={label}
