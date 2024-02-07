@@ -8,7 +8,7 @@ import { GeoapifyContext } from "@geoapify/react-geocoder-autocomplete";
 function App() {
   return (
     <div className={styles.App}>
-      <GeoapifyContext apiKey="52fb75566d6749078f52cb3043f16712">
+      <GeoapifyContext apiKey={process.env.REACT_APP_GEOAPIFY_API_KEY}>
         <AddressListProvider>
           <AddressForm />
           <AddressList />
