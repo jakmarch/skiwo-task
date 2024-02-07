@@ -16,5 +16,5 @@ export const SelectFormControl = ({ ...props }: ISelectFormControlProps) => {
     helpers.setValue(value);
   };
 
-  return <Select {...props} {...field} onChange={onChange} />;
+  return <Select {...field} {...props} onChange={onChange} />;
 };

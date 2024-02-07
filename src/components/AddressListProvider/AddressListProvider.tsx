@@ -27,7 +27,6 @@ export const AddressListProvider = ({ children }: PropsWithChildren<{}>) => {
   const [addressList, setAddressList] = useState<AddressData[]>([]);
 
   const addAddress = (data: AddressData) => {
-    console.log(data);
     setAddressList([...addressList, data]);
   };
 

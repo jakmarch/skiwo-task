@@ -1,25 +1,22 @@
 import { FC } from "react";
-import { useField } from "formik";
 import { AddressAutocomplete } from "./AddressAutocomplete";
 
-interface IAddressAutocompleteFormControlProps {
+export interface IAddressAutocompleteFormControlProps {
   name: string;
   value: string;
   label?: string;
   placeholder?: string;
+  setValue: (val: string) => void;
 }
 
 export const AddressAutocompleteFormControl: FC<
   IAddressAutocompleteFormControlProps
-> = ({ name, label, placeholder, value }) => {
-  const [, , helpers] = useField(name);
-  console.log(value);
-
+> = ({ label, placeholder, value, setValue }) => {
   return (
     <AddressAutocomplete
       label={label}
       placeholder={placeholder}
-      setValue={(val) => helpers.setValue(val)}
+      setValue={(val) => setValue(val)}
       value={value}
     />
   );

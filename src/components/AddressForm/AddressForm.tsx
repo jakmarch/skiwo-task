@@ -1,5 +1,5 @@
 import styles from "./AddressForm.module.scss";
-import { Formik, Form, FormikProps } from "formik";
+import { Formik, Form } from "formik";
 import { Button } from "../Button/Button";
 import { TextAreaFormControl } from "../TextArea/TextAreaFormControl";
 import { v4 as uuidv4 } from "uuid";
@@ -38,20 +38,25 @@ function AddressForm() {
       </div>
 
       <Formik
-        initialValues={{ address: "", departments: [], description: "" }}
+        initialValues={{
+          address: "",
+          departments: [],
+          description: "",
+        }}
         onSubmit={(values, { resetForm }) => {
           onSubmit(values);
           resetForm();
         }}
         validationSchema={AddressSchema}
       >
-        {({ errors, touched, values }: FormikProps<any>) => (
-          <Form>
+        {({ errors, touched, values, setFieldValue }) => (
+          <Form role="form">
             <AddressAutocompleteFormControl
               name="address"
               label="Search for an address"
               placeholder="Type your address here..."
               value={values.address}
+              setValue={(val) => setFieldValue("address", val)}
             />
             {errors.address && touched.address ? (
               <div className={styles.addressForm__error}>
