@@ -3,14 +3,13 @@ import { createContext, useState, useContext, PropsWithChildren } from "react";
 export interface AddressData {
   id: string;
   address: string;
-  // departments: string;
   departments: DepartmentData[];
   description?: string;
 }
 
 export interface DepartmentData {
-  id: string;
-  name: string;
+  value: string;
+  label: string;
 }
 
 interface AddressListContextProps {

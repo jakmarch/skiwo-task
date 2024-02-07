@@ -21,6 +21,11 @@ const AddressSchema = Yup.object().shape({
 });
 
 function AddressForm() {
+  const initialValues: Omit<AddressData, "id"> = {
+    address: "",
+    departments: [],
+    description: "",
+  };
   const { addAddress } = useAddressListContext();
 
   const onSubmit = (data: Omit<AddressData, "id">) => {
@@ -37,12 +42,8 @@ function AddressForm() {
         </p>
       </div>
 
-      <Formik
-        initialValues={{
-          address: "",
-          departments: [],
-          description: "",
-        }}
+      <Formik<Omit<AddressData, "id">>
+        initialValues={initialValues}
         onSubmit={(values, { resetForm }) => {
           onSubmit(values);
           resetForm();
